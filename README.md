@@ -1,6 +1,4 @@
 
----
-
 ## 🔥 What This Repo Will Contain  
 - Code + comments for clarity  
 - Problem statements (optional)  
@@ -8,8 +6,6 @@
 - Notes + approaches used  
 - Daily/weekly progress tracking  
 - Important patterns (Kadane, Sliding Window, Two-Pointer, etc.)
-
----
 
 ## 📅 Progress Tracker  
 | Topic | Status | Notes |
