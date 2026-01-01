@@ -19,8 +19,6 @@
 | Graphs | ⏳ Pending | BFS, DFS, Shortest Path |
 | DP | ⏳ Pending | Classic DP + tabulation |
 
----
-
 ## 🧠 Sources I'm Following  
 - **Striver DSA Sheet**  
 - **LeetCode**  
@@ -28,8 +26,6 @@
 - **CodeStudio / CodingNinjas**  
 - **NeetCode**  
 - **YouTube – Kunal Kushwaha, Striver, TechDose**
-
----
 
 ## 🏆 Placement-Focused Topics  
 - Array & String mastery  
@@ -41,16 +37,12 @@
 - Greedy & bit manipulation  
 - System design basics (optional)
 
----
-
 ## ✨ How to Use This Repo  
 1. Clone the repo  
 2. Navigate to the topic folder  
 3. Check notes → read approach  
 4. Run and understand logic  
 5. Try related LeetCode/GFG problems
-
----
 
 ## 🤝 Contributions  
 This repository is personal but open for contributions!  
@@ -59,14 +51,10 @@ Feel free to add:
 - Notes  
 - New problems  
 
----
-
 ## 🧑‍💻 Author  
 **Apoorv Jain**  
 Final Year CSE | DSA Learner  
 GitHub: *https://github.com/apoorv-jn24*
-
----
 
 ## ⭐ If This Helps  
 Give a **star** ⭐ on GitHub to support!  
