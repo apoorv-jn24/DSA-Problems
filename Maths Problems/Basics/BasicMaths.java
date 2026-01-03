@@ -3,11 +3,14 @@ public class BasicMaths {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();
-        int b = sc.nextInt();
-        System.out.println(gcd(a,b));
-        System.out.println(reverse(a));
-        System.out.println(isPalindrome(a));
-        System.out.println(countDigits(a)); 
+        // int b = sc.nextInt();
+        // System.out.println(gcd(a,b));
+        // System.out.println(reverse(a));
+        // System.out.println(isPalindrome(a));
+        // System.out.println(countDigits(a)); 
+        // System.out.println(armstrongNumber(a));
+        // System.out.println(lcm(a,b));
+        System.out.println(countPrimes(a));
         sc.close();
     }
     // to reverse a number(leetcode variant)
@@ -53,5 +56,36 @@ public class BasicMaths {
         }
         if(a==0) return b;
         return a;
+    }
+    public static boolean armstrongNumber(int n){
+        int x=n;
+        int sum=0;
+        while(x>0){
+            int digit =x%10;
+            sum+=Math.pow(digit,3);
+            x/=10;
+        }
+        return n==((int) sum);
+    }
+    public static int lcm(int a, int b){
+        int multiply = a*b;
+        int hcf = gcd(a,b);
+        return multiply/hcf;
+    }
+    // count primes 
+   public static int countPrimes(int n) {
+        if(n<=1) return 0;
+        int count=0;
+        boolean [] isprime = new boolean[n+1];
+        Arrays.fill(isprime, true);
+        for(int i=2; i<n; i++){
+            if(isprime[i]) {
+                count++;
+                for(int j=i*2; j<n; j+=i){
+                isprime[j]=false;
+                }
+          }
+        }
+        return count;
     }
 }
