@@ -10,7 +10,7 @@
 ## 📅 Progress Tracker  
 | Topic | Status | Notes |
 |-------|--------|--------|
-| Patterns | ⏳ In Progress | Basic loops, triangles, squares |
+| Patterns | Completeed | Basic loops, triangles, squares |
 | Arrays | ⏳ In Progress | Prefix, Kadane, Two-pointer |
 | Strings | ⏳ In Progress | Hashing, Anagrams |
 | Recursion | ⏳ Pending | Backtracking included |
