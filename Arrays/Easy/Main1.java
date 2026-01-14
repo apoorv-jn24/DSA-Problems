@@ -1,8 +1,9 @@
 import java.util.*;
-public class Main {
+public class Main1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+        int val = scanner.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = scanner.nextInt();
@@ -11,6 +12,12 @@ public class Main {
         System.out.println(check(arr));
         int[] arr1 = {2, 2, 3, 4, 5};
         int[] arr2 ={1, 1, 2, 3, 4};
+        moveZeroes(arr1);
+        System.out.println(singleNumber(arr2));
+        System.out.println(maximumElement(arr));
+        System.out.println(missingNumber(arr2));
+        System.out.println(secondMax(arr));
+        System.out.println(removeElement(arr, val));
 
     }
     // maximum element of the array
@@ -23,7 +30,7 @@ public class Main {
         }
         return max;
     }
-    // missing number in array
+    // missing number in array LeetCode 268
     public static int missingNumber(int[] nums) {
         int n=nums.length;
         int totalSum=n*(n+1)/2;
@@ -60,7 +67,7 @@ public class Main {
         }
         return left + 1;
     }
-    // check if the array is sorted and rotated
+    // check if the array is sorted and rotated - LeetCode 1752
     public static boolean check(int[] nums) {
         int count=0;
         for(int i=0; i<nums.length; i++){
@@ -82,6 +89,7 @@ public class Main {
             nums[j]=temp;
             i++;
         }
+        j++;
     }
         for(int num:nums){
             System.out.print(num+" ");
@@ -105,5 +113,15 @@ public class Main {
         }
         return ans;
     }
-   //
+    // remove element leetcode 27
+    public static int removeElement(int[] nums, int val) {
+        int i = 0;
+        for(int j = 0; j < nums.length; j++){
+            if(nums[j] != val){
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        return i;
+    }
 }
