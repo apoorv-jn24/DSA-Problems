@@ -3,12 +3,63 @@ public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // int n = scanner.nextInt();
-        int[] arr = {0,1,0,3,12};
-        int k = scanner.nextInt();
-        rotate(arr, k);
+        int[] arr = {-2,1,-3,4,-1,2,1,-5,4};
+        // int k = scanner.nextInt();
+        // rotate(arr, k);
         int[] arr2 = {4,1,2,1,2};
-        System.out.println(findUnion(arr, arr2));
+        // System.out.println(findUnion(arr, arr2));
+        // System.out.println(numRescueBoats(arr2, 0));
+        System.out.println(maxSubArray(arr));
         scanner.close();
+    }
+    // find the duplicate number
+    public static int findDuplicate(int[] nums) {
+    /*  Normal or Brute Force Approach
+        for(int i=0; i<nums.length; i++){
+            for(int j=i+1; j<nums.length; j++){
+                if(nums[i] == nums[j]){
+                    return nums[i];
+                }
+            }
+        }
+        return -1;
+    }
+        */
+    /*
+    Another approach using HashSet
+        Set<Integer> seen = new HashSet<>();
+        for (int num : nums) {
+            if (seen.contains(num)) {
+                return num;
+            }
+            seen.add(num);
+        }
+        return -1;
+     */
+    /*
+    One More Approach by frequency array
+    int n = nums.length;
+    int[] freq = new int[n];
+    for (int num : nums) {
+        freq[num]++;
+        if (freq[num] > 1) {
+            return num;
+        }
+    }
+    */
+//    Optimal Approach: Floyd's Tortoise and Hare (Cycle Detection)
+        int slow=nums[0];
+        int fast=nums[0];
+        do{
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while(slow != fast);
+        slow=nums[0];
+        while(slow != fast){
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
     }
     // rotate the array by k steps 
     public static void rotate(int[] nums, int k) {
@@ -70,5 +121,66 @@ public class Solution {
             j++;
         }
         return result;
+    }
+    // boats to save people- leetcode 881   
+    public  static int numRescueBoats(int[] people, int limit) {
+        Arrays.sort(people);
+        int i=0, j=people.length-1;
+        int boats=0;
+        while(i<=j){
+            if(people[i]+people[j]<=limit){
+                i++;
+            }
+            j--;
+            boats++;
+        }
+        return boats;
+    }
+    // maximum  subarray leetcode-53 (Kadane's Algorithm)
+    public static int maxSubArray(int[] nums) {
+        int sum=0;
+        int maxSum = Integer.MIN_VALUE;;
+        for(int num:nums){
+            sum+=num;
+            maxSum = Math.max(maxSum, sum);
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return maxSum;
+    }
+//  longest subarray with sum k geeks for geeks
+    public static int longestSubarray(int[] arr, int k) {
+        // code here
+        // brute force approach O(n^2)
+        // int maxLength=0;
+        // for(int i=0; i<arr.length; i++){
+        //     int sum=0;
+        //     for(int j=i; j<arr.length; j++){
+        //         sum += arr[j];
+        //         if(sum == k){
+        //             maxLength = Math.max(maxLength, j - i + 1);
+        //         }
+        //     }
+        // }
+        // return maxLength;
+        
+        // optiomal approach O(n)
+        Map<Integer, Integer> prefixSumMap = new HashMap<>();
+        int prefixSum = 0;
+        int maxLength = 0;
+        for (int i = 0; i < arr.length; i++) {
+            prefixSum += arr[i];
+            if (prefixSum == k) {
+                maxLength = i + 1;
+            }
+            if (!prefixSumMap.containsKey(prefixSum)) {
+                prefixSumMap.put(prefixSum, i);
+            }
+            if (prefixSumMap.containsKey(prefixSum - k)) {
+                maxLength = Math.max(maxLength, i - prefixSumMap.get(prefixSum - k));
+            }
+        }
+        return maxLength;
     }
 }
