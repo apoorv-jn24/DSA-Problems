@@ -183,4 +183,21 @@ public class Solution {
         }
         return maxLength;
     }
+    // Rearrange Array elements by alternate sign  - LeetCode 2149
+    public static int[] rearrangeArray(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+        int posIndex = 0; // Pointer for positive numbers
+        int negIndex = 1; // Pointer for negative numbers
+        for(int num:nums){
+            if(num>=0){
+                result[posIndex] = num;
+                posIndex += 2;
+            } else {
+                result[negIndex] = num;
+                negIndex += 2;
+            }
+        }
+        return result;
+    }
 }

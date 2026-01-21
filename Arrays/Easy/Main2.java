@@ -38,6 +38,19 @@ public class Main2 {
     }
     // Majority Element - LeetCode 169 [n/2]
     public static int majorityElement(int[] nums) {
-        // 
+
+    }
+    // buy and sell stock - leetcode 121
+    public static int maxProfit(int[] prices) {
+        int maxProfit = 0;
+        int minPrice = Integer.MAX_VALUE;
+        for(int price:prices){
+            if(price<minPrice){
+                minPrice = price;
+            } else if(price - minPrice > maxProfit){
+                maxProfit = price - minPrice;
+            }
+        }
+        return maxProfit;
     }
 }
