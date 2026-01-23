@@ -56,4 +56,8 @@ public class Solution2 {
         }
         return result;
     }
+    // Maximum Product Subarray - LeetCode 152
+    public static int maxProduct(int[] nums) {
+       
+    }
 }
