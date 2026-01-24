@@ -3,6 +3,7 @@ public class Main2 {
     public static void main(String[] args) {
         int [] arr = {1,1,0,1,1,1};
         System.out.println(findMaxConsecutiveOnes(arr));
+        System.out.println(maxProfit(new int[]{7,1,5,3,6,4}));
     }
     
     // max consecutive onesw in an array- leetcode 485
