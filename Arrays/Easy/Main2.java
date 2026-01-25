@@ -73,4 +73,15 @@ public class Main2 {
             k--;
         }
     }
+    // Maximum difference between Highest and lowest of K- Score LeetCode 1984
+    public static int minimumDifference(int[] nums, int k) {
+        Arrays.sort(nums);
+        int minDiff = Integer.MAX_VALUE;
+        int n = nums.length, i=0;
+        while(i+k-1<n){
+            minDiff = Math.min(minDiff, nums[i+k-1]-nums[i]);
+            i++;
+        }
+        return minDiff;
+    }
 }
