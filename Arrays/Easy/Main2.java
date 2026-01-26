@@ -17,28 +17,35 @@ public class Main2 {
        return maxCount;
     }
     // Two Sum Problem -LeetCode 1
-    public static int[] twoSum(int[] nums, int target) {
-        // Brute Force Approach
-        // for(int i=0; i<nums.length; i++){
-        //     for(int j=i+1; j<nums.length; j++){
-        //         if(nums[i] + nums[j] == target){
-        //             return new int[]{i, j};
-        //         }
-        //     }
-        // }
-        // Optimal Approach using HashMap
-        Map<Integer, Integer> map = new HashMap<>();
-        for(int i=0; i<nums.length; i++){
-            int complement = target - nums[i];
-            if(map.containsKey(complement)){
-                return new int[]{map.get(complement), i};
-            }
-            map.put(nums[i], i);
-        }
-        return new int[]{-1, -1}; // return an invalid pair if no solution found
-    }
+    // public static int[] twoSum(int[] nums, int target) {
+    //     // Brute Force Approach
+    //     // for(int i=0; i<nums.length; i++){
+    //     //     for(int j=i+1; j<nums.length; j++){
+    //     //         if(nums[i] + nums[j] == target){
+    //     //             return new int[]{i, j};
+    //     //         }
+    //     //     }
+    //     // }
+    //     // Optimal Approach using HashMap
+    //     Map<Integer, Integer> map = new HashMap<>();
+    //     for(int i=0; i<nums.length; i++){
+    //         int complement = target - nums[i];
+    //         if(map.containsKey(complement)){
+    //             return new int[]{map.get(complement), i};
+    //         }
+    //         map.put(nums[i], i);
+    //     }
+    //     return new int[]{-1, -1}; // return an invalid pair if no solution found
+    // }
     // Majority Element - LeetCode 169 [n/2]
     public static int majorityElement(int[] nums) {
+        int freq=0, ans=0;
+        for(int num:nums){
+            if(freq==0) ans=num;
+            if(num==ans) freq++;
+            else freq--;
+        }
+        return ans;
 
     }
     // buy and sell stock - leetcode 121
