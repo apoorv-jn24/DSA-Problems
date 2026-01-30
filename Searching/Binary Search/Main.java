@@ -85,7 +85,7 @@ public class Main {
                 high = mid - 1;
             }
         }
-        return low;
+        return nums[low];
 }
 // search in rotated sorted array
     public static int search(int[] nums, int target) {
