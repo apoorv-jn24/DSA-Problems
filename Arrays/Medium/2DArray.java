@@ -2,7 +2,7 @@ public class 2DArray {
     public static void main(String[] args) {
         
     }
-    // Search a 2D matrix-II
+    // Search a 2D matrix-II- Leetcode-240
     
     public  static boolean searchMatrix(int[][] matrix, int target) {
         int rows = matrix.length, cols = matrix[0].length;
