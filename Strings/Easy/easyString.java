@@ -1,7 +1,16 @@
 import java.util.*;
 public class easyString {
     public static void main(String[] args) {
-        
+        String[] strs = {"flower","flow","flight"};
+        System.out.println(longestCommonPrefix(strs));
+        String s = "(()())(())";
+        System.out.println(removeOuterParentheses(s));
+        String num = "35427";
+        System.out.println(largestOddNumber(num));
+        String str1 = "abcde", str2 = "deabc";
+        System.out.println(rotateString(str1, str2));
+        String s1 = "egg", s2 = "add";
+        System.out.println(isIsomorphic(s1, s2));
     }
      // longest common prefix - leetcode 14
     public static String longestCommonPrefix(String[] strs) {
@@ -44,7 +53,7 @@ public class easyString {
         return "";
     }
     // rotate string - leetcode 796
-    public boolean rotateString(String s, String goal) {
+    public static boolean rotateString(String s, String goal) {
         if (s.length() != goal.length()) return false;
         String target= s+s;
         return target.contains(goal);
