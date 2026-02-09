@@ -3,6 +3,19 @@ public class easyString {
     public static void main(String[] args) {
         
     }
+     // longest common prefix - leetcode 14
+    public static String longestCommonPrefix(String[] strs) {
+        if(strs == null || strs.length == 0) return "";
+        for(int i=0; i<strs[0].length(); i++){
+            char ch= strs[0].charAt(i);
+            for(int j=1; j<strs.length; j++){
+                if(i>=strs[j].length() || ch!=strs[j].charAt(i)){
+                    return strs[0].substring(0,i);
+                }
+            }
+        }
+        return strs[0];
+    }
     // Remove outermost parentheses - LeetCode 1021
     public static String removeOuterParentheses(String s) {
         StringBuilder sb = new StringBuilder();
@@ -53,9 +66,5 @@ public class easyString {
         }
         return true;
     }
-    // longest common prefix - leetcode 14
-    public static String longestCommonPrefix(String[] strs) {
-        if(strs.length == 0) return "";
-        
-    }
+   
 }
