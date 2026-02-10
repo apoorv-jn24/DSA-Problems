@@ -143,4 +143,22 @@ public class Main {
         }
         return -1;
     }
+    // Nth root of a number
+    public static int nthRoot(int n, int m) {
+        // code here
+        // edge cases
+        if(m==0 || m==1) return m;
+        int low=1, high=m;
+        while(low<=high){
+            int mid= low + (high-low)/2;
+            long val=1;
+            for(int i=0; i<n; i++){
+                val*=mid;
+            }
+            if(val==m) return mid;
+            else if(val<m) low=mid+1;
+            else high=mid-1;
+        }
+        return -1;
+    }
 }
