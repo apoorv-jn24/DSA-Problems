@@ -40,5 +40,8 @@ public class Main1 {
 
         return totalSum;
     }
-
+    // String to integer - Leetcode 8 (Atoi) Overflow version
+    public int myAtoi(String s) {
+        
+    }
 }

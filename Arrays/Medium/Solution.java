@@ -219,4 +219,20 @@ public class Solution {
         }
         return max;
     }
+    // frequency of the most frequent element- LeetCode 1838  
+    public int maxFrequency(int[] nums, int k) {
+        Arrays.sort(nums);
+        long sum=0;
+        int i=0, maxFreq=0;
+        for(int j=0; j<nums.length; j++){
+            sum+=nums[j];
+            while((long) nums[j] * (j-i+1)-sum >k){
+                sum-=nums[i];
+                i++;
+            }
+            maxFreq=Math.max(maxFreq, j-i+1);
+        }
+        return maxFreq;
+    }
+
 }
