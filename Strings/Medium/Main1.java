@@ -42,6 +42,24 @@ public class Main1 {
     }
     // String to integer - Leetcode 8 (Atoi) Overflow version
     public int myAtoi(String s) {
-        
+        s=s.trim();
+        if(s.length()==0) return 0;
+        int sign=1; // 1 for positive, -1 for negative (after multiplication)
+        int i=0, n=s.length(), ans=0;
+        if(s.charAt(0)=='-'){
+            sign*=-1;
+            i++;
+        }
+        while(i<n && Character.isDigit(s.charAt(i))){
+            int digit=s.charAt(i)-'0';
+            // Check for overflow
+            if(ans> Integer.MAX_VALUE/10 || (ans==Integer.MAX_VALUE/10 && digit>7)){
+                //sign works for negative element digit isilie liya because integer max aur min ki last digit 7 hai
+                return sign==1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+            ans=ans*10+digit;
+            i++;
+        }
+        return ans*sign;
     }
 }
