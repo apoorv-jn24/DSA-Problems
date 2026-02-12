@@ -62,4 +62,33 @@ public class Main1 {
         }
         return ans*sign;
     }
+    // longest palindromic substring - Leetcode 5
+    public static String longestPalindrome(String s) {
+        // Brute force approach - O(n^3)
+    //     int n=s.length();
+    //     String longest=""; // empty string palindrome consider hoti hai 
+    //     for (int i = 0; i < n; i++) {
+    //         for (int j = i; j < n; j++) {
+    //             if(isPalindrome(s,i,j)){
+    //                 String curr=s.substring(i,j+1);
+    //                 if(curr.length()>longest.length()){
+    //                     longest=curr;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return longest;
+    // }
+    // private static boolean isPalindrome(String s, int left, int right){
+    //     while(left<right){
+    //         if(s.charAt(left)!=s.charAt(right)){
+    //             return false;
+    //         }
+    //         left++;
+    //         right--;
+    //     }
+    //     return true;
+    // Optimal Approach
+    
+    }
 }
