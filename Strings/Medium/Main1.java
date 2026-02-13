@@ -91,4 +91,28 @@ public class Main1 {
     // Optimal Approach
     
     }
+    // 451. Sort Characters By Frequency
+    public static String frequencySort(String s) {
+        //sabse pehle frequency count
+        Map<Character,Integer> map=new HashMap<>();
+        for(int i=0; i<s.length(); i++){
+            char ch=s.charAt(i);
+            map.put(ch,map.getOrDefault(ch,0)+1);
+        }
+        // sort using collections but uske liye list mai daalna padega kyuki map ko directly sort nahi kar sakte
+        List<Map.Entry<Character,Integer>> list=new ArrayList<>(map.entrySet());// map-list mai convert
+        //ab list ko sort kaise kare- using collections- but decreasing order mai bhi karna hai
+        // uske liye freq(b,a) wala method banana padega lets try
+        Collections.sort(list, (a,b) -> b.getValue() - a.getValue());
+        // upar wala ek lamda expression hai bhai 
+        StringBuilder sb=new StringBuilder();
+        for(Map.Entry<Character,Integer> entry : list){
+            char ch=entry.getKey();
+            int freq=entry.getValue();
+            for(int i=0; i<freq; i++){
+                sb.append(ch);
+            }
+        }
+        return sb.toString();
+    }
 }
