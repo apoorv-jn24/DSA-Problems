@@ -29,4 +29,16 @@ public class Main1 {
         }
         return count;
     }
+    // find XOR of numbers in a range - GFG
+    public static int findXOR(int l, int r) {
+       return xorUptoN(r) ^ xorUptoN(l - 1);
+       // using the pattern for the xor properties. 
+    // there is a fixed pattern for the xor in terms of 4 if we see that
+    }
+    static int xorUptoN(int n) {
+        if (n % 4 == 0) return n;
+        else if (n % 4 == 1) return 1;
+        else if (n % 4 == 2) return n + 1;
+        else return 0;
+    }
 }
