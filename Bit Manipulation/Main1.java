@@ -41,5 +41,5 @@ public class Main1 {
         else if (n % 4 == 2) return n + 1;
         else return 0;
     }
-    // 
+    // New
 }
