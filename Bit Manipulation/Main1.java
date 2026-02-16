@@ -18,7 +18,45 @@ public class Main1 {
         return answer;
     }
     public int singleNumber2(int[] nums) {
-        
+        // Aao all approach karte hain is problem ko.
+        // Approach 1: Using HashMap
+        // Map<Integer, Integer> map = new HashMap<>();
+        // for(int num:nums){
+        //     map.put(num, map.getOrDefault(num, 0)+1);
+        // }
+        // for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+        //     if(entry.getValue()==1) return entry.getKey();
+        // }
+        // return -1;
+        // Approach 2: Using Sorting
+        // Arrays.sort(nums);
+        // every number is thrice
+        // for(int i=0; i<nums.length-1; i+=3){
+        //     if(nums[i]!=nums[i+1]) return nums[i];
+        // }
+        // return nums[nums.length-1];
+        // Approach 3: Using Bit Manipulation
+        // int answer=0;
+        // for(int i=0; i<32; i++){
+        //     int count=0;
+        //     for(int num:nums){
+        //         if((num & (1<<i)) !=0) count++;
+        //     }
+        //     if(count%3!=0) answer|=(1<<i);
+        // }
+        // return answer;
+        // Optimal Approach: Using Bit Manipulation with O(1) space
+        // this approach is difficult to think on i also take out help from ai and striever video
+        // lets understand
+        int ones=0, twos=0;
+        // agar ek baar aya to ek baar warna two mai bhej denge agar teesri baar aaya to dono se nikal denge
+        for(int num:nums){
+            ones=(ones^num) & (~twos);
+            twos=(twos^num) & (~ones);
+            // Number ko 1 mai laane ke liye kya karna hai ki one ka xor mtlb add aur wo number two mai nahi hona chaiye to uska complement and vice versa
+            // we can dry run this is the game of bits
+        }
+        return ones;
     }
     // Minimum Bit Flips to Convert Number
      public static int minBitFlips(int start, int goal) {
