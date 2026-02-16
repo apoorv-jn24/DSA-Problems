@@ -93,23 +93,35 @@ public class Main1 {
     }
     // Sinbgle Number-3 
     public int[] singleNumber3(int[] nums) {
-        int xor=0;
+        // int xor=0;
+        // int[] ans=new int[2];
+        // for(int num:nums){
+        //     xor^=num;
+        // }
+        // // ab matter hai ki dono number ko alag kaise kare so for that we use bits
+        // // called as bucket sort approach 
+        // int rightMostBit= (xor & (xor-1)) ^ xor;
+        // // yaha se rightmost bit aai jo dono number me alag hai (sabse pehli bit jo alag hai from right)
+        // // ab dono ko alag group mai baat do and kyuki saare element 2 baar hai toh wo sab cancel out ho jayenge
+        // int num1=0, num2=0;
+        // for(int num:nums){
+        //     if((num & rightMostBit) !=0) num1^=num;
+        //     else num2^=num;
+        // }
+        // ans[0]=num1; ans[1]=num2;
+        // return ans;
+        // we can also have a brute force that is map or can say frequency array
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int num:nums){
+            map.put(num, map.getOrDefault(num, 0)+1);
+        }
         int[] ans=new int[2];
-        for(int num:nums){
-            xor^=num;
+        int index=0;
+        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+            if(entry.getValue()==1) ans[index++]=entry.getKey();
         }
-        // ab matter hai ki dono number ko alag kaise kare so for that we use bits
-        // called as bucket sort approach 
-        int rightMostBit= (xor & (xor-1)) ^ xor;
-        // yaha se rightmost bit aai jo dono number me alag hai (sabse pehli bit jo alag hai from right)
-        // ab dono ko alag group mai baat do and kyuki saare element 2 baar hai toh wo sab cancel out ho jayenge
-        int num1=0, num2=0;
-        for(int num:nums){
-            if((num & rightMostBit) !=0) num1^=num;
-            else num2^=num;
-        }
-        ans[0]=num1; ans[1]=num2;
         return ans;
+
     }
 
 }
