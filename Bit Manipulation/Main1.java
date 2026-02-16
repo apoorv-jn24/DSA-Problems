@@ -41,5 +41,17 @@ public class Main1 {
         else if (n % 4 == 2) return n + 1;
         else return 0;
     }
-    // New
+    // Reverse Bits - Leetcode 190
+    public int reverseBits(int n) {
+        int res=0;
+        for(int i=0; i<32; i++){
+           res<<=1;
+           res |= (n&1);
+           n>>>=1;
+        }
+        // dry run karke dekh lena samaj jaoge curiosity bhi 
+        // loop do baar nahi chalana padega
+        return res;
+    }
+
 }
