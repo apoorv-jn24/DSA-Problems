@@ -79,6 +79,34 @@ public class Solution2 {
             }
         }
     }
-    
+    // Majority Element II  - LeetCode 229
+    public static List<Integer> majorityElement(int[] nums) {
+        // Optimal answer without hashmap just by two counters
+        int count1=0, el1=0, count2=0, el2=0;
+        for(int num:nums){
+            if(count1==0 && num!=el2){
+                count1=1;
+                el1=num;
+            } else if(count2==0 && num!=el1){
+                count2=1;
+                el2=num;
+            } else if(num==el1) count1++;
+            else if(num==el2) count2++;
+            else{
+                count1--;
+                count2--;
+            }
+        }
+        // Lets do a manual check
+        List<Integer> result = new ArrayList<>();
+        count1=0; count2=0;
+        for(int num:nums){
+            if(num==el1) count1++;
+            else if(num==el2) count2++;
+        }
+        if(count1>nums.length/3) result.add(el1);
+        if(count2>nums.length/3) result.add(el2);
+        return result;
+    }
     
 }
