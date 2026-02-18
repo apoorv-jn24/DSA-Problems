@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 public class Subsequences {
     public static void main(String[] args) {
         String str = "abc";
-        int[] nums = {4,4,4,1,4};
+        int[] nums = {1,1,2,2};
         System.out.println(subsetsII(nums));
     }
     // All subsets of the ArrayList  LeetCode 78
@@ -39,6 +40,7 @@ public class Subsequences {
         int start = 0, end=0;
         for(int i=0;i<nums.length;i++){
             int num = nums[i];
+            start = 0;
             if(i>0 && nums[i]==nums[i-1]){
                 start = end+1;
             }
