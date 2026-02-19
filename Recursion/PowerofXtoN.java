@@ -1,4 +1,5 @@
 public class PowerofXtoN {
+    // Using Recursion
     public static void main(String[] args) {
         System.out.println(myPow(2.00000, 10));
     }
